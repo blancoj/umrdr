@@ -42,8 +42,9 @@ def create_user(email='demouser@example.com')
 end
 
 def create_demo_work(user)
-  gw = GenericWork.new( title: ['Demowork'], owner: user.user_key, description: ["A demonstration work for populating the repo."], tag: ["demo"] )
+  #It did not like attribute tag - need to find
+  gw = GenericWork.new( title: ['Demowork'], owner: user.user_key, description: ["A demonstration work for populating the repo."])
   gw.apply_depositor_metadata(user.user_key)
+  gw.visibility = "open"
   gw.save
 end
-
