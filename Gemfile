@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Added Gems
-gem 'sufia', '~> 7.0'
+gem 'hyrax', '0.0.1.alpha', github: 'projecthydra-labs/hyrax'
 # EZID client from Duke
 gem 'ezid-client'
 # LDAP client
@@ -17,7 +17,7 @@ gem 'config'
 
 # Gems added by generator
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '5.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
