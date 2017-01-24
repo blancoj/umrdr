@@ -2,11 +2,11 @@
   <p class="alert alert-info">There are no items to display</p>
 <% else %>
   <table class="table table-zebra-striped">
-    <caption class="sr-only">Listing of items you have deposited in <%= t('sufia.product_name') %></caption>
+    <caption class="sr-only">Listing of items you have deposited in <%= t('hyrax.product_name') %></caption>
   <% unless params[:display_type] == 'list' %>
     <thead>
     <tr>
-      <th><label for="check_all" class="sr-only"><%= t("sufia.dashboard.my.sr.check_all_label") %></label><%= render_check_all %></th>
+      <th><label for="check_all" class="sr-only"><%= t("hydra.dashboard.my.sr.check_all_label") %></label><%= render_check_all %></th>
       <th>Title</th>
       <th class="sorts-dash"><i id="<%= CatalogController.uploaded_field %>" class="<%=params[:sort]== "#{CatalogController.uploaded_field} desc" ? 'caret' : params[:sort]== "#{CatalogController.uploaded_field} asc" ? 'caret up' : ''%>"></i>Date Uploaded</th>
       <th>Access</th>
@@ -19,7 +19,7 @@
         <% if document.collection? %>
           <%= render 'my/_index_partials/list_collections', document: document, counter: counter %>
         <% else %>
-          <%= render 'my/_index_partials/list_works', document: document, counter: counter, presenter: Sufia::WorkShowPresenter.new(document, current_ability) %>
+          <%= render 'my/_index_partials/list_works', document: document, counter: counter, presenter: Hyrax::WorkShowPresenter.new(document, current_ability) %>
        <% end %>
       <% end %>
     </tbody>

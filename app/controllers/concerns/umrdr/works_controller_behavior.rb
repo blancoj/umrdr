@@ -1,12 +1,12 @@
 module Umrdr
   module WorksControllerBehavior
     extend ActiveSupport::Concern
-    include Sufia::Controller
-    include Sufia::WorksControllerBehavior
-    include CurationConcerns::CurationConcernController
+    include Hyrax::Controller
+    include Hyrax::WorksControllerBehavior
+    include Hyrax::HyraxController
 
     
-    # override curation concerns, add form fields values
+    # override Hyrax, add form fields values
     def build_form
       super
 
@@ -18,7 +18,7 @@ module Umrdr
 
     def after_create_response
       respond_to do |wants|
-        wants.html { redirect_to [main_app, curation_concern] }
+        wants.html { redirect_to [main_app, hyrax] }
         wants.json { render :show, status: :created, location: polymorphic_path([main_app, curation_concern]) }
       end
     end

@@ -1,7 +1,7 @@
 class GenericWork < ActiveFedora::Base
-  include ::CurationConcerns::WorkBehavior
-  include ::CurationConcerns::BasicMetadata
-  include Sufia::WorkBehavior
+  include ::Hyrax::WorkBehavior
+  include ::Hyrax::BasicMetadata
+  include Hyrax::WorkBehavior
   include Umrdr::GenericWorkBehavior
   include Umrdr::GenericWorkMetadata
   validates :title, presence: { message: 'Your work must have a title.' }

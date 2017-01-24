@@ -1,4 +1,4 @@
-# Class to encapsulate the logic required to migrate the repository objects from sufia6F to sufia7 code base.
+# Class to encapsulate the logic required to migrate the repository objects from hyrax6F to hyrax7 code base.
 class MigrateServiceSix
 
   # Cache the full set of ACLS so we don't have to keep asking for them.
@@ -8,11 +8,11 @@ class MigrateServiceSix
     @all_acls ||= Hydra::AccessControls::Permission.all
   end
 
-  # Find the legacy access controls From the Sufia.Frakenversion (Sufia6F) codebase.
+  # Find the legacy access controls From the Hyrax.Frakenversion (Hyrax6F) codebase.
   # Create equivalent_permissions for the GenericWork or FileSet.
   # Destroy the legacy access controls.
   def migrate_permissions_for(object)
-      # Find any access controls for this work.  The must be sufia6F style in order to not show up on the Work.
+      # Find any access controls for this work.  The must be hyrax6F style in order to not show up on the Work.
       legacy_access_controls = access_controls_for object
       puts "#{legacy_access_controls.count} AccessControls for #{object.class}: #{object.id}"
       puts "#{object.permissions}"
@@ -78,7 +78,7 @@ class MigrateServiceSix
       end
     end
 
-    # Get list of GenericWorks that are still using the v6.Franensufia style of access controls.
+    # Get list of GenericWorks that are still using the v6.Franenhyrax style of access controls.
     # These will appear empty from the v7 based code.
     def works_with_empty_permissions
       GenericWork.all.select{|gw| gw.permissions.empty?}
@@ -97,7 +97,7 @@ class MigrateServiceSix
       access_controls.each{ |access_ctl| object.permissions.build access_ctl.to_hash }
     end
 
-    # Take property value from Sufia6F predicate DC.creator
+    # Take property value from Hyrax6F predicate DC.creator
     # write it to the current property (which uses DC11.creator as the predicate)
     def update_creator_of(object)
       object.creator = object.get_values(::RDF::Vocab::DC.creator)

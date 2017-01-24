@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  Hydra::BatchEdit.add_routes(self)
+  #Hydra::BatchEdit.add_routes(self)
   mount BrowseEverything::Engine => '/browse'
   mount Blacklight::Engine => '/'
 
@@ -14,18 +14,18 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {sessions: 'sessions'}
   get '/logout_now', to: 'sessions#logout_now'
 
-  Hydra::BatchEdit.add_routes(self)
+  #Hydra::BatchEdit.add_routes(self)
 
   #mount Hydra::Collections::Engine => '/'
-  mount CurationConcerns::Engine, at: '/'
+#  mount Hyrax::Engine, at: '/'
   resources :welcome, only: 'index'
-  root 'sufia/homepage#index'
-  curation_concerns_collections
-  curation_concerns_basic_routes
-  curation_concerns_embargo_management
+  root 'hyrax/homepage#index'
+  #hyrax_collections
+ # hyrax_basic_routes
+ # Hyrax_embargo_management
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  namespace :curation_concerns, path: :concern do
+  namespace :hyrax, path: :concern do
     resources :generic_works do
       member do
         post 'identifiers'
@@ -37,14 +37,14 @@ Rails.application.routes.draw do
     concerns :exportable
   end
 
-  mount Sufia::Engine => '/'
+  mount Hyrax::Engine => '/'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'sufia/homepage#index'
+  # root 'hyrax/homepage#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

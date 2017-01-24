@@ -1,7 +1,6 @@
 class CatalogController < ApplicationController
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
-  include Sufia::Catalog
   include BlacklightAdvancedSearch::Controller
 
   # These before_filters apply the hydra access controls

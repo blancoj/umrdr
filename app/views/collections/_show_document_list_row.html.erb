@@ -1,5 +1,5 @@
 <% id = document.id %>
-<% presenter = document.is_a?(GenericWork) ? Sufia::WorkShowPresenter.new(document, nil) : nil %>
+<% presenter = document.is_a?(GenericWork) ? Hyrax::WorkShowPresenter.new(document, nil) : nil %>
 <tr id="document_<%= id %>" class="<%= cycle("", "zebra") %>">
   <td>&nbsp;
     <% if current_user and document.depositor != current_user.user_key %>

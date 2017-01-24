@@ -17,7 +17,7 @@ namespace :umrdr do
     puts "#{report[:file_sets_need_tech].count} file sets need characterization."
   end
 
-  desc "Migrate Metadata and ACLs for Sufia6F works."
+  desc "Migrate Metadata and ACLs for Hyrax6F works."
   task :migrate_6f_acl_md => :environment do |t|
     ENV["RAILS_ENV"] ||= "development"
 
@@ -59,7 +59,7 @@ namespace :umrdr do
     end
   end
 
-  desc "Migrate Sufia6F tech md by running characterization."
+  desc "Migrate Hyrax6F tech md by running characterization."
   task :migrate_6f_ch13n => :environment do |t|
     ENV["RAILS_ENV"] ||= "development"
     filesets = MigrateServiceSix.file_sets_missing_metadata
@@ -75,11 +75,11 @@ namespace :umrdr do
     end
   end
 
-  desc "Migrate Sufia6F Based Works Access Controls."
+  desc "Migrate Hyrax6F Based Works Access Controls."
   task :migrate_6f_works_acl => :environment do |t|
     ENV["RAILS_ENV"] ||= "development"
 
-    # Find Works with empty permissions.  This is how they will appear to the Sufia7 codebase.
+    # Find Works with empty permissions.  This is how they will appear to the Hyrax7 codebase.
     works = MigrateServiceSix.works_with_empty_permissions
     puts "#{works.count} GenericWork with empty permissions."
 

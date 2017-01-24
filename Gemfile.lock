@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/jcoyne/flipflop.git
+  revision: 0eecddade9890548c92b1e8aa681512f1db01469
+  branch: hydra
+  specs:
+    flipflop (2.2.1)
+      activesupport (>= 4.0)
+
+GIT
   remote: git://github.com/projecthydra-labs/hyrax.git
   revision: c1bf56dfaac6b8eaf9248476f032cf812ee95da3
   specs:
@@ -283,8 +291,6 @@ GEM
     fcrepo_wrapper (0.7.0)
       ruby-progressbar
     ffaker (2.4.0)
-    flipflop (2.2.1)
-      activesupport (>= 4.0)
     flot-rails (0.0.7)
       jquery-rails
     font-awesome-rails (4.7.0.1)
@@ -774,6 +780,7 @@ DEPENDENCIES
   factory_girl_rails
   fcrepo_wrapper (~> 0.1)
   ffaker
+  flipflop!
   hyrax (= 0.0.1.alpha)!
   jbuilder (~> 2.0)
   jquery-rails

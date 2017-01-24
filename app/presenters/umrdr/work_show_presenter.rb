@@ -1,6 +1,6 @@
 
 module Umrdr
-  class WorkShowPresenter < ::Sufia::WorkShowPresenter
+  class WorkShowPresenter < ::Hyrax::WorkShowPresenter
 
     attr_accessor :object_profile
     delegate :methodology, :date_coverage, :isReferencedBy, to: :solr_document
